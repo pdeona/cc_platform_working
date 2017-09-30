@@ -50,3 +50,9 @@ end
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
+
+# Added at 2017-09-30 13:26:22 -0400 by pdeona:
+gem "vcr", "~> 3.0"
+
+# Added at 2017-09-30 13:27:54 -0400 by pdeona:
+gem "webmock", "~> 3.0"
