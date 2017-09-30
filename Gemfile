@@ -62,3 +62,6 @@ gem "mongoid", "~> 6.2"
 
 # Added at 2017-09-30 16:01:36 -0400 by pdeona:
 gem "httparty", "~> 0.15.6"
+
+# Added at 2017-09-30 17:38:43 -0400 by pdeona:
+gem "symmetric-encryption", "~> 4.0"
