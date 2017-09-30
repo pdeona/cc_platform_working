@@ -7,5 +7,5 @@ class UserTest < ActiveSupport::TestCase
   end
 
   test "User has a .username method" do
-    u =
+  end
 end
