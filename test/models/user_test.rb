@@ -17,7 +17,13 @@ class UserTest < ActiveSupport::TestCase
     assert_respond_to @u, :password, "User has no .password method"
   end
 
-  test "User validates :username field" do
+  test "User validates :username presence" do
+    @u.password = "validpass"
+    refute @u.save
+  end
+
+  test "User validates :password presence" do
+    @u.username = "p@d.com"
     refute @u.save
   end
 
@@ -27,6 +33,25 @@ class UserTest < ActiveSupport::TestCase
       @u.password = invalid_password
       refute @u.save
     end
+  end
+
+  test "User validates username format for valid email" do
+    invalid_usernames = ["p@ddd", "@d.d", "pdpdpd", "pdpd.dp.dpdp"]
+    invalid_usernames.each do |invalid_username|
+      @u.username = invalid_username
+      refute @u.save
+    end
+  end
+
+  test "User rejects identical emails" do
+    valid_user = User.create(username: "pedro@deona.com")
+    @u.username = "pedro@deona.com"
+    refute @u.save
+  end
+
+  test "Accepts valid email strings" do
+    valid_user = User.new(username: "pedro@deona.com", password: "tested")
+    assert valid_user.save
   end
 
 end
