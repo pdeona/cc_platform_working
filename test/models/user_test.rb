@@ -7,5 +7,7 @@ class UserTest < ActiveSupport::TestCase
   end
 
   test "User has a .username method" do
+    u = User.new
+    assert_respond_to u, :username, "User has no .username method"
   end
 end
