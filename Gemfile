@@ -56,3 +56,9 @@ gem "vcr", "~> 3.0"
 
 # Added at 2017-09-30 13:27:54 -0400 by pdeona:
 gem "webmock", "~> 3.0"
+
+# Added at 2017-09-30 15:15:13 -0400 by pdeona:
+gem "mongoid", "~> 6.2"
+
+# Added at 2017-09-30 16:01:36 -0400 by pdeona:
+gem "httparty", "~> 0.15.6"
