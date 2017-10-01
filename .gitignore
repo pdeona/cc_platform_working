@@ -18,6 +18,6 @@
 
 .byebug_history
 
-/data
+/data/db/*
 
 /config/symmetric-encryption.yml
