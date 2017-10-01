@@ -3,6 +3,8 @@ class User
 
   include Mongoid::Document
 
+  attr_accessor :password, :password_confirmation
+
   field :username
   embeds_many :positions
 
@@ -11,6 +13,7 @@ class User
   validates :username, presence: true, format: { with: VALID_EMAIL_REGEX },
                        uniqueness: true
   validates :password, length: {minimum: 4, maximum: 16}
-  validates :positions, presence: false
-  validates_confirmation_of :password
+  validates_confirmation_of :password, :message => "Password confirmation did not match"
+  validates :password_confirmation, presence: true
+
 end
