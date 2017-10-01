@@ -2,7 +2,7 @@ require 'test_helper'
 
 class UserTest < ActiveSupport::TestCase
   def setup
-    @u = User.new(username: "123@se.com")
+    @u = User.new
   end
 
   test "it creates a User on .new" do
@@ -18,12 +18,12 @@ class UserTest < ActiveSupport::TestCase
   end
 
   test "User validates :username presence" do
-    @u.password = "validpass"
+    @u.username = nil
     refute @u.save
   end
 
   test "User validates :password presence" do
-    @u.username = "p@d.com"
+    @u.password = nil
     refute @u.save
   end
 
@@ -62,7 +62,7 @@ class UserTest < ActiveSupport::TestCase
   end
 
   test "saves on valid password confirmation" do
-    @u.username = "12334@ocm.com"
+    @u.username = "1234@ocm.com"
     @u.password = "password"
     @u.password_confirmation = "password"
     assert @u.save, "User save failed."
