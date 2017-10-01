@@ -12,4 +12,6 @@ class User
                        uniqueness: true
   validates :password, length: {minimum: 4, maximum: 16}
   validates :positions, presence: false
+
+  validates_confirmation_of :password
 end

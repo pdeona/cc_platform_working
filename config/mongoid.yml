@@ -14,7 +14,7 @@ test:
     default:
       database:  coin_platform_test
       hosts:
-        - localhost:27018
+        - localhost:27017
       options:
         read:
           mode: :primary
@@ -25,7 +25,7 @@ development:
     default:
       database:  coin_platform_test
       hosts:
-        - localhost:27018
+        - localhost:27017
       options:
         read:
           mode: :primary

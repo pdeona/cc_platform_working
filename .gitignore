@@ -18,7 +18,9 @@
 
 .byebug_history
 
-/data/db/*
+/data/*
 
 /config/symmetric-encryption.yml
-./data/db
+/config/mongoid.yml
+/data/db
+

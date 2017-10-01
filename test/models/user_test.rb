@@ -2,7 +2,7 @@ require 'test_helper'
 
 class UserTest < ActiveSupport::TestCase
   def setup
-    @u = User.new
+    @u = User.new(username: "123@se.com")
   end
 
   test "it creates a User on .new" do
@@ -51,8 +51,20 @@ class UserTest < ActiveSupport::TestCase
 
   test "Accepts valid email strings" do
     email_str = (0..4).map{ |x| x = rand(0..9) }
-    valid_user = User.new(username: "#{email_str.join}@deon.com", password: "tested")
+    valid_user = User.new(username: "#{email_str.join}@deon.com", password: "tested", password_confirmation: "tested")
     assert valid_user.save, "User was not saved successfully."
+  end
+
+  test "Rejects invalid password confirmation" do
+    @u.password = "password"
+    @u.password_confirmation = "invalid"
+    refute @u.save, "User saved without valid confirmation"
+  end
+
+  test "Saves with valid password confirmation" do
+    @u.password = "password"
+    @u.password_confirmation = "password"
+    assert @u.save, "User was not saved successfully"
   end
 
 end
