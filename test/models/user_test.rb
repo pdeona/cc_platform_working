@@ -55,4 +55,17 @@ class UserTest < ActiveSupport::TestCase
     assert valid_user.save, "User was not saved successfully."
   end
 
+  test "confirms password input" do
+    @u.password = "password"
+    @u.password_confirmation = nil
+    refute @u.save, "User saved with invalid confirmation"
+  end
+
+  test "saves on valid password confirmation" do
+    @u.username = "12334@ocm.com"
+    @u.password = "password"
+    @u.password_confirmation = "password"
+    assert @u.save, "User save failed."
+  end
+
 end
