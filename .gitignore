@@ -20,7 +20,6 @@
 
 /data/*
 
-/config/symmetric-encryption.yml
+/config/symmetric-encryption.yml\
 /config/mongoid.yml
-/data/db
-
+/data/*
