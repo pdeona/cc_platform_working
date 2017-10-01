@@ -50,8 +50,9 @@ class UserTest < ActiveSupport::TestCase
   end
 
   test "Accepts valid email strings" do
-    valid_user = User.new(username: "pedro@deona.com", password: "tested")
-    assert valid_user.save
+    email_str = (0..4).map{ |x| x = rand(0..9) }
+    valid_user = User.new(username: "#{email_str.join}@deon.com", password: "tested")
+    assert valid_user.save, "User was not saved successfully."
   end
 
 end
