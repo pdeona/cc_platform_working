@@ -21,3 +21,4 @@
 /data/db/*
 
 /config/symmetric-encryption.yml
+./data/db
