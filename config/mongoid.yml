@@ -3,7 +3,18 @@ test:
     default:
       database:  coin_platform_test
       hosts:
-        - localhost:27017
+        - localhost:27018
+      options:
+        read:
+          mode: :primary
+        max_pool_size: 1
+
+development:
+  clients:
+    default:
+      database:  coin_platform_test
+      hosts:
+        - localhost:27018
       options:
         read:
           mode: :primary
