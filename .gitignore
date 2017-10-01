@@ -22,3 +22,5 @@
 
 /config/symmetric-encryption.yml
 ./data/db
+
+/config/mongoid.yml
