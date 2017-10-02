@@ -64,12 +64,12 @@ class TransactionTest < ActiveSupport::TestCase
     refute @t.save, "Transaction was saved with invalid underlying_currency length"
   end
 
-  test "The exchanged_currency attribute validates symbol matches an existing currency" do
+  test "The exchanged_currency attribute validates symbol as existing currency" do
     @t.exchanged_currency = "123"
     refute @t.save, "Transaction saved with invalid exchanged_currency symbol"
   end
 
-  test "The underlying_currency attribute validates symbol matches an existing currency" do
+  test "The underlying_currency attribute validates symbol as existing currency" do
     @t.underlying_currency = "123"
     refute @t.save, "Trnasaction saved with invalid exchanged_currency symbol"
   end
