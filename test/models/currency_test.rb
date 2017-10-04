@@ -38,4 +38,5 @@ class CurrencyTest < ActiveSupport::TestCase
     @c.symbol = 'invalid'
     refute @c.save, "symbol is not a valid length"
   end
+  
 end
