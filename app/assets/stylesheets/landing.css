@@ -1,0 +1,70 @@
+
+/********** RESET **********/
+
+* {
+  box-sizing: border-box;
+}
+
+li {
+  list-style-type: none;
+}
+
+a {
+  text-decoration: none;
+}
+
+
+/********** STYLING **********/
+
+body {
+  background: #333;
+  color: lightgray;
+}
+
+nav {
+  display: flex;
+  padding: 1.7em;
+  justify-content: center;
+  border: 1px solid black;
+  color: #fff;
+  padding: 20px;
+  background: #111;
+  border: 1px solid #eee;
+  border-radius: 6px;
+}
+
+.nav-item {
+  display: flex;
+  align-content: middle;
+  justify-content: center;
+}
+
+.btn {
+    display: inline-block;
+    padding: 6px 12px;
+    margin-bottom: 0;
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 1.42857143;
+    text-align: center;
+    white-space: nowrap;
+    vertical-align: middle;
+    -ms-touch-action: manipulation;
+    touch-action: manipulation;
+    cursor: pointer;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    background-image: none;
+    border: 1px solid transparent;
+    border-radius: 4px;
+}
+
+.btn-primary {
+  color: black;
+  background-color: #ddd;
+}
+
+
+

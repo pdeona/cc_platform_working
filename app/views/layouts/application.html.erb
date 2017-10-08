@@ -8,9 +8,13 @@
     <%= javascript_include_tag 'application',
     'data-turbolinks-track': 'reload' %>
     <script src="https://d3js.org/d3.v4.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/1.7.2/socket.io.js"></script>
+
   </head>
 
   <body>
+      <script src="ccc-streamer-utilities.js"></script>
+      <script src="stream.js"></script>
     <%= yield %>
   </body>
 </html>

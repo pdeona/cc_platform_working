@@ -23,6 +23,11 @@ User.create(username: 'pedro@de.ona', password: 'lolcoin', password_confirmation
 
 u = User.last
 c = Currency.first
-Position.create({user: u,
-								 currency: c})
+p = Position.create({
+			user: u,
+	 		currency: c
+	 	})
+
+Transaction.create(position: p, date: Date.new(2017, 1, 1), underlying_currency: 'BTC', exchanged_currency: 'USD')
+Transaction.create(position: p, date: Date.new(2017, 1, 30), underlying_currency: 'BTC', exchanged_currency: 'USD')
 
