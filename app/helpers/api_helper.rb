@@ -15,7 +15,7 @@ module ApiHelper
 		return date.strftime(format)
 	end
 
-	def coin_spot_price(fromSym, *toSyms)
+	def coin_spot_price(fromSym = 'USD', *toSyms)
 		# fromSym: symbol of coin or currency, as String
 		# toSyms: to symbol, as multiple Strings
 		# returns a hash / object literal, where each key (String)
@@ -31,6 +31,7 @@ module ApiHelper
 
 		# to get how many USD per BTC, use the prices method
 		endpoint = "https://min-api.cryptocompare.com/data/price?"
+		toSyms << "BTC" if toSyms.empty?
 		url = endpoint + "fsym=" + fromSym.upcase + "&tsyms=" + toSyms.map{|coin| coin.upcase}.join(",")
 		return HTTParty.get(url).parsed_response
 
@@ -41,10 +42,15 @@ module ApiHelper
 		# for example, if we want to get prices of bitcoin,
 		# ethereum, and litecoin in USD...
 		# prices("USD", "BTC", "ETC", "LTC")
+		if coins.empty?
+			CORE_COINS.each do |coin|
+				coins << coin[:symbol]
+			end
+		end
 		hash_response = coin_spot_price(base_currency, coins.join(','))
 		result = {}
 		hash_response.each do |coin, val|
-			result[coin] = 1/val 
+			result[coin] = 1/val
 		end
 		result
 	end
@@ -69,7 +75,7 @@ module ApiHelper
 		return result
 	end
 
-	def price_hist(base_currency, num_days=30, *coins)
+	def price_hist(base_currency, num_days = 30, *coins)
 		# example: get price history of bitcoin, ethereum, litecoin,
 		# in USD, for last 100 days
 		# 		price_hist("USD", 100, "BTC", "ETH", "LTC")
@@ -90,5 +96,5 @@ module ApiHelper
 		# response = HTTParty.get(url).parsed_response
 		# return response
 	end
-
 end
+
