@@ -87,14 +87,18 @@ module ApiHelper
 	end
 
 	def price_hist_by_hour(from_currency="BTC", to_currency="USD", aggregate=1, num_hours=24*5)
-		# from_currency = "BTC"
-		# to_currency = "USD"
-		# aggregate = 1		# hour frequency
-		# num_hours = 24 * 5  # how many hours
 
-		# url = 'https://min-api.cryptocompare.com/data/histohour?fsym=' + from_currency.upcase + '&tsym=' + to_currency.upcase + '&limit=' + num_hours.to_s + '&aggregate=' + aggregate.to_s
-		# response = HTTParty.get(url).parsed_response
-		# return response
+		# from_currency (string) -> currency we want quoted, default: "BTC"
+		# to_currency (string) -> denomination, default: "USD"
+		# aggregate -> period, in hours, default: 1 => every hour
+		# num_hours -> how many hours, default: 120 => 5 days
+
+		# returns a hash, where we care about
+		# result["Data"] => an array of hashes
+	
+		url = 'https://min-api.cryptocompare.com/data/histohour?fsym=' + from_currency.upcase + '&tsym=' + to_currency.upcase + '&limit=' + num_hours.to_s + '&aggregate=' + aggregate.to_s
+		result = HTTParty.get(url).parsed_response
+		return result
 	end
 end
 

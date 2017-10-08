@@ -7,6 +7,12 @@
 		<li>
 			<div>
 				<%= "#{curr[:name].capitalize} (#{curr[:symbol].upcase}) - #{sprintf '%.2f', prices[curr[:symbol]]}"  %>
+				<ol>
+					
+					<% price_hist_by_hour(curr[:symbol])["Data"].each do |node| %>
+						<li><%= node %></li>
+					<% end %>
+				</ol>
 			</div>
 		</li> 
 
