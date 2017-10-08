@@ -2,14 +2,14 @@
 <h1>Coins</h1>
 
 <ol>
-<% ApiHelper::CORE_COINS.each do |curr| %>
-	<li>
-		<div>
-			<%= "#{curr[:name]} (#{curr[:symbol]})"  %>
-			
-		</div>
-	</li> 
+	<% prices = prices('USD') %>
+	<% ApiHelper::CORE_COINS.each do |curr| %>
+		<li>
+			<div>
+				<%= "#{curr[:name].capitalize} (#{curr[:symbol].upcase}) - #{sprintf '%.2f', prices[curr[:symbol]]}"  %>
+			</div>
+		</li> 
 
-	
-<% end %>
+		
+	<% end %>
 </ol>
