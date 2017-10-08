@@ -7,9 +7,9 @@ class Position
 
 
   def self.transaction_filter_by date: {}, currency_exchanged: false
-    if date['before'] || date['after']
-      transactions.where(date: { |d| date['before'] < d < date['after'] })
-    end
+    # if date['before'] || date['after']
+    #   transactions.where(date: { |d| date['before'] < d < date['after'] })
+    # end
   end
 
 end

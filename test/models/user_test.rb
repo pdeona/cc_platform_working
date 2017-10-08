@@ -36,7 +36,7 @@ class UserTest < ActiveSupport::TestCase
     invalid_passwords = "too", "toolongheredontdothis", " "
     invalid_passwords.each do |invalid_password|
       @u.password = invalid_password
-      refute @u.save
+      refute @u.save, "#{invalid_password} was allowed to save"
     end
   end
 

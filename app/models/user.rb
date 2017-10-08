@@ -17,7 +17,7 @@ class User
 
   field :password_hash, type: String
 
-  validates_length_of :password, :minimum => 6, :message => "Password Must Be Longer Than 6 Characters."
+  validates_length_of :password, minimum: 6, maximum: 16, :message => "Password Must Be Longer Than 6 Characters."
   validates_presence_of :password_confirmation, :message => "Password Confirmation Must Match Given Password."
 
   def self.authenticate(email, password)
