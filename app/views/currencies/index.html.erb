@@ -10,7 +10,12 @@
 				<ol>
 					
 					<% price_hist_by_hour(curr[:symbol])["Data"].each do |node| %>
-						<li><%= node %></li>
+						<li>
+							<div>
+								<%= get_date_from_unix_date(node["time"].to_s) %>
+								<%= node["close"] %>
+							</div>
+						</li>
 					<% end %>
 				</ol>
 			</div>

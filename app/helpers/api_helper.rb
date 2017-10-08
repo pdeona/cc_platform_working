@@ -9,7 +9,7 @@ module ApiHelper
 	CORE_CURRENCIES = [{name: "US Dollar", symbol: "USD"}, {name: "Euro", symbol: "EUR"}, {name: "Japanese Yen", symbol: "JPY"}, {name: "British Pound", symbol: "GBP"}, {name: "Swiss Franc", symbol: "CHF"}, {name: "Canadian Dollar", symbol: "CAD"}, {name: "Australian Dollar", symbol: "AUD"}, {name: "New Zealand Dollar", symbol: "NZD"}, {name: "South African Rand", symbol: "ZAR"}, {name: "Chinese Yuan Renminbi", symbol: "CNY"}]
 	CORE_COINS = [{name: "bitcoin", symbol: 'BTC'}, {name: "bitcoin-cash", symbol: "BCH"}, {name: "ethereum", symbol:"ETH"}, {name: "ethereum-classic",symbol:"ETC"}, {name: "litecoin", symbol:"LTC"}, {name: "dash", symbol:"DASH"}, {name: "monero", symbol:"XMR"}, {name: "zcash", symbol:"ZEC"}, {name: "ripple", symbol:"XRP"}]
 
-	def getDateFromUnixDate(unixDate, format = '%H:%M %a %d %b %Y')
+	def get_date_from_unix_date(unixDate, format = '%H:%M %a %d %b %Y')
 		# converts unixDate (String) and returns a friendly date (String)
 		date = DateTime.strptime(unixDate, '%s')
 		return date.strftime(format)
