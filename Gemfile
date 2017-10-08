@@ -67,4 +67,4 @@ gem "httparty", "~> 0.15.6"
 # gem "symmetric-encryption", "~> 4.0"
 
 # Added at 2017-10-08 13:33:44 -0400 by pdeona:
-gem "mongoid-bcrypt-ruby", "~> 0.0.2"
+# gem "mongoid-bcrypt-ruby", "~> 0.0.2"

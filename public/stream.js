@@ -65,13 +65,12 @@ var updateQuote = function(result) {
   displayQuote(quote[pair]);
 }
 
-var socket = io('https://streamer.cryptocompare.com/').connect();
-// socket.connect();
+let socket = io('https://streamer.cryptocompare.com/').connect();
 
 //Format: {SubscriptionId}~{ExchangeName}~{FromSymbol}~{ToSymbol}
 //Use SubscriptionId 0 for TRADE, 2 for CURRENT and 5 for CURRENTAGG
 //For aggregate quote updates use CCCAGG as market
-var subscription = ['5~CCCAGG~BTC~USD','5~CCCAGG~ETH~USD'];
+let subscription = ['5~CCCAGG~BTC~USD','5~CCCAGG~ETH~USD'];
 
 socket.emit('SubAdd', {subs:subscription} );
 
