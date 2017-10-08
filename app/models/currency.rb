@@ -1,7 +1,6 @@
 class Currency
   include Mongoid::Document
   field :cur_name
-  field :value, type: BigDecimal
   field :symbol
 
   validates :symbol, length: { minimum: 3, maximum: 5 }
