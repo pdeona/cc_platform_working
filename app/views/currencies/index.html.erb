@@ -1,8 +1,15 @@
 
-<h1>Currencies</h1>
+<h1>Coins</h1>
 
-<% @currencies.each do |curr| %>
-	<%= curr.cur_name  %>
+<ol>
+<% ApiHelper::CORE_COINS.each do |curr| %>
+	<li>
+		<div>
+			<%= "#{curr[:name]} (#{curr[:symbol]})"  %>
+			
+		</div>
+	</li> 
 
 	
 <% end %>
+</ol>
